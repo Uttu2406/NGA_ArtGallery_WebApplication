@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="NGA_ArtGallery.Data/NGA_ArtGallery.Data.csproj" />
+  <Project Path="NGA_ArtGallery.Web/NGA_ArtGallery.Web.csproj" />
+</Solution>
