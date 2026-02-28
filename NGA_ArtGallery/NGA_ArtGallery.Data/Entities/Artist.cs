@@ -25,7 +25,9 @@ namespace NGA_ArtGallery.Data.Entities
 
         public string ContactInformation { get; set; }
 
-        // Navigation property: One artist can have many artworks
+
+
+        // One to many reltion between Artist and Artwork
         public virtual ICollection<Artwork> Artworks { get; set; }
     }
 }

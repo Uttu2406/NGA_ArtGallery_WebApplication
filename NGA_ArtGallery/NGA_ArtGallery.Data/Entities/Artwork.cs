@@ -21,7 +21,9 @@ namespace NGA_ArtGallery.Data.Entities
 
         public string ImageURL { get; set; }
 
-        // Link back to Artist (Foreign Key)
+
+
+        // Many to one relationship between Artwork and Artist
         public int ArtistID { get; set; }
 
         [ForeignKey("ArtistID")]

@@ -3,24 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\KIIT01\\Desktop\\Wipro NGA\\Art_Gallery\\NGA_ArtGallery_WebApplication\\NGA_ArtGallery\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5E6B9967-9ACD-43D4-9AE6-D1FA293026FF}|NGA_ArtGallery.Web\\NGA_ArtGallery.Web.csproj|c:\\users\\kiit01\\desktop\\wipro nga\\art_gallery\\nga_artgallery_webapplication\\nga_artgallery\\nga_artgallery.web\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E6B9967-9ACD-43D4-9AE6-D1FA293026FF}|NGA_ArtGallery.Web\\NGA_ArtGallery.Web.csproj|solutionrelative:nga_artgallery.web\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\KIIT01\\Desktop\\Wipro NGA\\Art_Gallery\\NGA_ArtGallery_WebApplication\\NGA_ArtGallery\\NGA_ArtGallery.Web\\Migrations\\20260228105904_UpdateRelationshipsFromPDF.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:NGA_ArtGallery.Web\\Migrations\\20260228105904_UpdateRelationshipsFromPDF.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{57F88704-3D2C-43D4-B4F6-9340E188A952}|NGA_ArtGallery.Data\\NGA_ArtGallery.Data.csproj|c:\\users\\kiit01\\desktop\\wipro nga\\art_gallery\\nga_artgallery_webapplication\\nga_artgallery\\nga_artgallery.data\\context\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{57F88704-3D2C-43D4-B4F6-9340E188A952}|NGA_ArtGallery.Data\\NGA_ArtGallery.Data.csproj|solutionrelative:nga_artgallery.data\\context\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2B19D6E6-AE40-0244-9A37-CC835F9DCF13}|NGA_ArtGallery.Data\\NGA_ArtGallery.Data.csproj|c:\\users\\kiit01\\desktop\\wipro nga\\art_gallery\\nga_artgallery_webapplication\\nga_artgallery\\nga_artgallery.data\\entities\\gallery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2B19D6E6-AE40-0244-9A37-CC835F9DCF13}|NGA_ArtGallery.Data\\NGA_ArtGallery.Data.csproj|solutionrelative:nga_artgallery.data\\entities\\gallery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{57F88704-3D2C-43D4-B4F6-9340E188A952}|NGA_ArtGallery.Data\\NGA_ArtGallery.Data.csproj|c:\\users\\kiit01\\desktop\\wipro nga\\art_gallery\\nga_artgallery_webapplication\\nga_artgallery\\nga_artgallery.data\\entities\\artist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{57F88704-3D2C-43D4-B4F6-9340E188A952}|NGA_ArtGallery.Data\\NGA_ArtGallery.Data.csproj|solutionrelative:nga_artgallery.data\\entities\\artist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2B19D6E6-AE40-0244-9A37-CC835F9DCF13}|NGA_ArtGallery.Data\\NGA_ArtGallery.Data.csproj|c:\\users\\kiit01\\desktop\\wipro nga\\art_gallery\\nga_artgallery_webapplication\\nga_artgallery\\nga_artgallery.data\\entities\\artist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2B19D6E6-AE40-0244-9A37-CC835F9DCF13}|NGA_ArtGallery.Data\\NGA_ArtGallery.Data.csproj|solutionrelative:nga_artgallery.data\\entities\\artist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{57F88704-3D2C-43D4-B4F6-9340E188A952}|NGA_ArtGallery.Data\\NGA_ArtGallery.Data.csproj|c:\\users\\kiit01\\desktop\\wipro nga\\art_gallery\\nga_artgallery_webapplication\\nga_artgallery\\nga_artgallery.data\\entities\\artwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{57F88704-3D2C-43D4-B4F6-9340E188A952}|NGA_ArtGallery.Data\\NGA_ArtGallery.Data.csproj|solutionrelative:nga_artgallery.data\\entities\\artwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2B19D6E6-AE40-0244-9A37-CC835F9DCF13}|NGA_ArtGallery.Data\\NGA_ArtGallery.Data.csproj|c:\\users\\kiit01\\desktop\\wipro nga\\art_gallery\\nga_artgallery_webapplication\\nga_artgallery\\nga_artgallery.data\\entities\\artwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2B19D6E6-AE40-0244-9A37-CC835F9DCF13}|NGA_ArtGallery.Data\\NGA_ArtGallery.Data.csproj|solutionrelative:nga_artgallery.data\\entities\\artwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{57F88704-3D2C-43D4-B4F6-9340E188A952}|NGA_ArtGallery.Data\\NGA_ArtGallery.Data.csproj|c:\\users\\kiit01\\desktop\\wipro nga\\art_gallery\\nga_artgallery_webapplication\\nga_artgallery\\nga_artgallery.data\\entities\\gallery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{57F88704-3D2C-43D4-B4F6-9340E188A952}|NGA_ArtGallery.Data\\NGA_ArtGallery.Data.csproj|solutionrelative:nga_artgallery.data\\entities\\gallery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{88BF8970-F6C3-440A-BC9C-B15727D27437}|NGA_ArtGallery.Web\\NGA_ArtGallery.Web.csproj|c:\\users\\kiit01\\desktop\\wipro nga\\art_gallery\\nga_artgallery_webapplication\\nga_artgallery\\nga_artgallery.web\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{88BF8970-F6C3-440A-BC9C-B15727D27437}|NGA_ArtGallery.Web\\NGA_ArtGallery.Web.csproj|solutionrelative:nga_artgallery.web\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B19D6E6-AE40-0244-9A37-CC835F9DCF13}|NGA_ArtGallery.Data\\NGA_ArtGallery.Data.csproj|c:\\users\\kiit01\\desktop\\wipro nga\\art_gallery\\nga_artgallery_webapplication\\nga_artgallery\\nga_artgallery.data\\context\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2B19D6E6-AE40-0244-9A37-CC835F9DCF13}|NGA_ArtGallery.Data\\NGA_ArtGallery.Data.csproj|solutionrelative:nga_artgallery.data\\context\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,17 +34,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\KIIT01\\Desktop\\Wipro NGA\\Art_Gallery\\NGA_ArtGallery_WebApplication\\NGA_ArtGallery\\NGA_ArtGallery.Web\\Program.cs",
               "RelativeDocumentMoniker": "NGA_ArtGallery.Web\\Program.cs",
               "ToolTip": "C:\\Users\\KIIT01\\Desktop\\Wipro NGA\\Art_Gallery\\NGA_ArtGallery_WebApplication\\NGA_ArtGallery\\NGA_ArtGallery.Web\\Program.cs",
               "RelativeToolTip": "NGA_ArtGallery.Web\\Program.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAIwCYAAAAXAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-28T09:27:01.737Z",
               "IsPinned": true,
@@ -48,7 +52,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
+              "Title": "20260228105904_UpdateRelationshipsFromPDF.cs",
+              "DocumentMoniker": "C:\\Users\\KIIT01\\Desktop\\Wipro NGA\\Art_Gallery\\NGA_ArtGallery_WebApplication\\NGA_ArtGallery\\NGA_ArtGallery.Web\\Migrations\\20260228105904_UpdateRelationshipsFromPDF.cs",
+              "RelativeDocumentMoniker": "NGA_ArtGallery.Web\\Migrations\\20260228105904_UpdateRelationshipsFromPDF.cs",
+              "ToolTip": "C:\\Users\\KIIT01\\Desktop\\Wipro NGA\\Art_Gallery\\NGA_ArtGallery_WebApplication\\NGA_ArtGallery\\NGA_ArtGallery.Web\\Migrations\\20260228105904_UpdateRelationshipsFromPDF.cs",
+              "RelativeToolTip": "NGA_ArtGallery.Web\\Migrations\\20260228105904_UpdateRelationshipsFromPDF.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-28T10:59:04.276Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "ApplicationDbContext.cs",
               "DocumentMoniker": "C:\\Users\\KIIT01\\Desktop\\Wipro NGA\\Art_Gallery\\NGA_ArtGallery_WebApplication\\NGA_ArtGallery\\NGA_ArtGallery.Data\\Context\\ApplicationDbContext.cs",
               "RelativeDocumentMoniker": "NGA_ArtGallery.Data\\Context\\ApplicationDbContext.cs",
@@ -56,18 +73,17 @@
               "RelativeToolTip": "NGA_ArtGallery.Data\\Context\\ApplicationDbContext.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-28T09:32:51.782Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-28T09:32:51.782Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 1,
               "Title": "Gallery.cs",
               "DocumentMoniker": "C:\\Users\\KIIT01\\Desktop\\Wipro NGA\\Art_Gallery\\NGA_ArtGallery_WebApplication\\NGA_ArtGallery\\NGA_ArtGallery.Data\\Entities\\Gallery.cs",
               "RelativeDocumentMoniker": "NGA_ArtGallery.Data\\Entities\\Gallery.cs",
               "ToolTip": "C:\\Users\\KIIT01\\Desktop\\Wipro NGA\\Art_Gallery\\NGA_ArtGallery_WebApplication\\NGA_ArtGallery\\NGA_ArtGallery.Data\\Entities\\Gallery.cs",
               "RelativeToolTip": "NGA_ArtGallery.Data\\Entities\\Gallery.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAYwBkAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-28T08:50:10.802Z",
               "EditorCaption": ""
@@ -80,7 +96,7 @@
               "RelativeDocumentMoniker": "NGA_ArtGallery.Data\\Entities\\Artwork.cs",
               "ToolTip": "C:\\Users\\KIIT01\\Desktop\\Wipro NGA\\Art_Gallery\\NGA_ArtGallery_WebApplication\\NGA_ArtGallery\\NGA_ArtGallery.Data\\Entities\\Artwork.cs",
               "RelativeToolTip": "NGA_ArtGallery.Data\\Entities\\Artwork.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAA+AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-28T08:48:13.84Z",
               "EditorCaption": ""
@@ -93,7 +109,7 @@
               "RelativeDocumentMoniker": "NGA_ArtGallery.Data\\Entities\\Artist.cs",
               "ToolTip": "C:\\Users\\KIIT01\\Desktop\\Wipro NGA\\Art_Gallery\\NGA_ArtGallery_WebApplication\\NGA_ArtGallery\\NGA_ArtGallery.Data\\Entities\\Artist.cs",
               "RelativeToolTip": "NGA_ArtGallery.Data\\Entities\\Artist.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAA5AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-28T08:45:46.117Z",
               "EditorCaption": ""
