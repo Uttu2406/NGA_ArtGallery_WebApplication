@@ -10,24 +10,25 @@ namespace NGA_ArtGallery.Data.Entities
     {
         [Key]
         public int ArtistID { get; set; }
+        public int UserID { get; set; }
 
         [Required]
         [StringLength(100)]
-        public string Name { get; set; }
+        public string Name { get; set; } = string.Empty;
 
-        public string Biography { get; set; }
+        public string? Biography { get; set; }
 
-        public DateTime BirthDate { get; set; }
+        public DateTime? BirthDate { get; set; }
 
-        public string Nationality { get; set; }
+        public string? Nationality { get; set; }
 
-        public string Website { get; set; }
+        public string? Website { get; set; }
 
-        public string ContactInformation { get; set; }
+        public string? ContactInformation { get; set; }
 
 
 
         // One to many reltion between Artist and Artwork
-        public virtual ICollection<Artwork> Artworks { get; set; }
+        public virtual ICollection<Artwork>? Artworks { get; set; }
     }
 }

@@ -1,11 +1,12 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore; // Must have .Identity
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using NGA_ArtGallery.Data.Entities;
 
 namespace NGA_ArtGallery.Data.Context
 {
-    // Must inherit from IdentityDbContext to handle logins
-    public class ApplicationDbContext : IdentityDbContext
+    // Explicitly tell Identity to use IdentityUser<int>, IdentityRole<int>, and int for the PK
+    public class ApplicationDbContext : IdentityDbContext<IdentityUser<int>, IdentityRole<int>, int>
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options) { }
@@ -16,7 +17,10 @@ namespace NGA_ArtGallery.Data.Context
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
+            // This MUST be called first so Identity tables are configured
             base.OnModelCreating(builder);
+
+            // Sets your custom schema
             builder.HasDefaultSchema("Gallery");
         }
     }

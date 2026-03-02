@@ -38,7 +38,8 @@ namespace NGA_ArtGallery.Web.Migrations
                 schema: "Gallery",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     ConcurrencyStamp = table.Column<string>(type: "nvarchar(max)", nullable: true)
@@ -53,7 +54,8 @@ namespace NGA_ArtGallery.Web.Migrations
                 schema: "Gallery",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     Email = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
@@ -84,33 +86,14 @@ namespace NGA_ArtGallery.Web.Migrations
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Location = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Curator = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    OpeningHours = table.Column<string>(type: "nvarchar(max)", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Galleries", x => x.GalleryID);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Artworks",
-                schema: "Gallery",
-                columns: table => new
-                {
-                    ArtworkID = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Title = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    CreationDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Medium = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ImageURL = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    OpeningHours = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ArtistID = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Artworks", x => x.ArtworkID);
+                    table.PrimaryKey("PK_Galleries", x => x.GalleryID);
                     table.ForeignKey(
-                        name: "FK_Artworks_Artists_ArtistID",
+                        name: "FK_Galleries_Artists_ArtistID",
                         column: x => x.ArtistID,
                         principalSchema: "Gallery",
                         principalTable: "Artists",
@@ -125,7 +108,7 @@ namespace NGA_ArtGallery.Web.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    RoleId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    RoleId = table.Column<int>(type: "int", nullable: false),
                     ClaimType = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ClaimValue = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
@@ -148,7 +131,7 @@ namespace NGA_ArtGallery.Web.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    UserId = table.Column<int>(type: "int", nullable: false),
                     ClaimType = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ClaimValue = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
@@ -172,7 +155,7 @@ namespace NGA_ArtGallery.Web.Migrations
                     LoginProvider = table.Column<string>(type: "nvarchar(128)", maxLength: 128, nullable: false),
                     ProviderKey = table.Column<string>(type: "nvarchar(128)", maxLength: 128, nullable: false),
                     ProviderDisplayName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                    UserId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -191,8 +174,8 @@ namespace NGA_ArtGallery.Web.Migrations
                 schema: "Gallery",
                 columns: table => new
                 {
-                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    RoleId = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                    UserId = table.Column<int>(type: "int", nullable: false),
+                    RoleId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -218,7 +201,7 @@ namespace NGA_ArtGallery.Web.Migrations
                 schema: "Gallery",
                 columns: table => new
                 {
-                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    UserId = table.Column<int>(type: "int", nullable: false),
                     LoginProvider = table.Column<string>(type: "nvarchar(128)", maxLength: 128, nullable: false),
                     Name = table.Column<string>(type: "nvarchar(128)", maxLength: 128, nullable: false),
                     Value = table.Column<string>(type: "nvarchar(max)", nullable: true)
@@ -235,11 +218,50 @@ namespace NGA_ArtGallery.Web.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Artworks",
+                schema: "Gallery",
+                columns: table => new
+                {
+                    ArtworkID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Title = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CreationDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Medium = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ImageURL = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ArtistID = table.Column<int>(type: "int", nullable: false),
+                    GalleryID = table.Column<int>(type: "int", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Artworks", x => x.ArtworkID);
+                    table.ForeignKey(
+                        name: "FK_Artworks_Artists_ArtistID",
+                        column: x => x.ArtistID,
+                        principalSchema: "Gallery",
+                        principalTable: "Artists",
+                        principalColumn: "ArtistID",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Artworks_Galleries_GalleryID",
+                        column: x => x.GalleryID,
+                        principalSchema: "Gallery",
+                        principalTable: "Galleries",
+                        principalColumn: "GalleryID");
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_Artworks_ArtistID",
                 schema: "Gallery",
                 table: "Artworks",
                 column: "ArtistID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Artworks_GalleryID",
+                schema: "Gallery",
+                table: "Artworks",
+                column: "GalleryID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
@@ -286,6 +308,12 @@ namespace NGA_ArtGallery.Web.Migrations
                 column: "NormalizedUserName",
                 unique: true,
                 filter: "[NormalizedUserName] IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Galleries_ArtistID",
+                schema: "Gallery",
+                table: "Galleries",
+                column: "ArtistID");
         }
 
         /// <inheritdoc />
@@ -320,15 +348,15 @@ namespace NGA_ArtGallery.Web.Migrations
                 schema: "Gallery");
 
             migrationBuilder.DropTable(
-                name: "Artists",
-                schema: "Gallery");
-
-            migrationBuilder.DropTable(
                 name: "AspNetRoles",
                 schema: "Gallery");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers",
+                schema: "Gallery");
+
+            migrationBuilder.DropTable(
+                name: "Artists",
                 schema: "Gallery");
         }
     }

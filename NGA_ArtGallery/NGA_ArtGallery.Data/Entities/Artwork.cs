@@ -11,15 +11,15 @@ namespace NGA_ArtGallery.Data.Entities
 
         [Required]
         [StringLength(255)]
-        public string Title { get; set; }
+        public string Title { get; set; } = string.Empty;
 
-        public string Description { get; set; }
+        public string? Description { get; set; }
 
-        public DateTime CreationDate { get; set; }
+        public DateTime? CreationDate { get; set; }
 
-        public string Medium { get; set; }
+        public string? Medium { get; set; }
 
-        public string ImageURL { get; set; }
+        public string? ImageURL { get; set; }
 
 
 
@@ -27,6 +27,6 @@ namespace NGA_ArtGallery.Data.Entities
         public int ArtistID { get; set; }
 
         [ForeignKey("ArtistID")]
-        public virtual Artist Artist { get; set; }
+        public virtual Artist? Artist { get; set; }
     }
 }
