@@ -5,22 +5,5 @@
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
 
-    @* ----------------------------------------------------------------------------------------------------------- *@
-    @using Microsoft.AspNetCore.Identity
-    @inject UserManager<IdentityUser<int>> UserManager
-    <div class="card mt-5 border-primary">
-        <div class="card-header bg-primary text-white"><h4>Security "Truth" Box</h4></div>
-        <div class="card-body">
-            <ul class="list-group">
-                <li class="list-group-item"><strong>Authenticated:</strong> @User.Identity.IsAuthenticated</li>
-                <li class="list-group-item"><strong>Username:</strong> @User.Identity.Name</li>
-                <li class="list-group-item"><strong>Internal ID:</strong> @UserManager.GetUserId(User)</li>
-                <li class="list-group-item"><strong>Role (Admin):</strong> @User.IsInRole("Admin")</li>
-                <li class="list-group-item"><strong>Role (Artist):</strong> @User.IsInRole("Artist")</li>
-            </ul>
-        </div>
-    </div>
-    @* ----------------------------------------------------------------------------------------------------------- *@
-
     <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>

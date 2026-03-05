@@ -1,0 +1,32 @@
+﻿@model IEnumerable<NGA_ArtGallery.Web.Models.ViewModels.UserManagementViewModel>
+
+@{
+    ViewData["Title"] = "Manage Users";
+}
+
+<h1>User Management</h1>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.Id</td>
+                <td>@user.Email</td>
+                <td>@user.Role</td>
+                <td>
+                    <button class="btn btn-sm btn-primary">Edit Role</button>
+                    <button class="btn btn-sm btn-danger">Delete</button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
