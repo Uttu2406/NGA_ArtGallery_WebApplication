@@ -1,0 +1,37 @@
+﻿@using Microsoft.AspNetCore.Identity
+@model IdentityUser<int>
+
+@{
+    ViewData["Title"] = "My Account";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow">
+                <div class="card-header bg-dark text-white">
+                    <h4 class="mb-0">Account Information</h4>
+                </div>
+                <div class="card-body">
+                    <div class="row mb-3">
+                        <div class="col-sm-4 font-weight-bold">Username:</div>
+                        <div class="col-sm-8">@Model.UserName</div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-sm-4 font-weight-bold">Email:</div>
+                        <div class="col-sm-8">@Model.Email</div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-sm-4 font-weight-bold">Account ID:</div>
+                        <div class="col-sm-8">#@Model.Id</div>
+                    </div>
+                </div>
+                <div class="card-footer text-end">
+                    <a asp-area="Identity" asp-page="/Account/Manage/Index" class="btn btn-sm btn-outline-secondary">
+                        Edit Security Settings
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

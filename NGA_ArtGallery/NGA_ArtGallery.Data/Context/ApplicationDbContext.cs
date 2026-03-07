@@ -5,7 +5,6 @@ using NGA_ArtGallery.Data.Entities;
 
 namespace NGA_ArtGallery.Data.Context
 {
-    // Explicitly tell Identity to use IdentityUser<int>, IdentityRole<int>, and int for the PK
     public class ApplicationDbContext : IdentityDbContext<IdentityUser<int>, IdentityRole<int>, int>
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
@@ -17,11 +16,16 @@ namespace NGA_ArtGallery.Data.Context
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            // This MUST be called first so Identity tables are configured
+            // 1. Initialize Identity defaults
             base.OnModelCreating(builder);
 
-            // Sets your custom schema
-            builder.HasDefaultSchema("Gallery");
+            // 2. Keep Identity tables in dbo (the default)
+            builder.HasDefaultSchema("dbo");
+
+            // 3. Move only your custom Gallery models to the "Gallery" schema
+            builder.Entity<Artist>().ToTable("Artists", "Gallery");
+            builder.Entity<Artwork>().ToTable("Artworks", "Gallery");
+            builder.Entity<Gallery>().ToTable("Galleries", "Gallery");
         }
     }
 }

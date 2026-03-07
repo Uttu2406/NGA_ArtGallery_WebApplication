@@ -21,4 +21,8 @@
     <ProjectReference Include="..\NGA_ArtGallery.Data\NGA_ArtGallery.Data.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\images\artworks\" />
+  </ItemGroup>
+
 </Project>

@@ -1,51 +1,75 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 public static class DbSeeder
 {
     public static async Task SeedRolesAndAdminAsync(IServiceProvider service)
     {
-        // 1. Get the Managers with the <int> and <IdentityRole<int>> types
         var roleManager = service.GetRequiredService<RoleManager<IdentityRole<int>>>();
         var userManager = service.GetRequiredService<UserManager<IdentityUser<int>>>();
 
-        // 2. Define the Roles
+        // 1. Define the Roles
         string[] roles = { "Admin", "Artist", "User" };
         foreach (var roleName in roles)
         {
             if (!await roleManager.RoleExistsAsync(roleName))
             {
-                // CRITICAL: Must use IdentityRole<int> here
                 await roleManager.CreateAsync(new IdentityRole<int>(roleName));
             }
         }
 
-        // 3. Define your Admin List
-        var adminEmails = new List<string> {
-            "bhandari.krish.kb@gmail.com",
-            "admin@gmail.com"
+        // 2. Define the User Lists by Role
+        var admins = new List<string> { 
+            "bhandari.krish.kb@gmail.com", 
+            "admin@gmail.com" 
         };
 
-        foreach (var email in adminEmails)
+        var artists = new List<string> { 
+            "test_artist@gmail.com" 
+        };
+
+        var normalUsers = new List<string> { 
+            "test_user@gmail.com" 
+        };
+
+        // 3. Seed Admins
+        foreach (var email in admins)
         {
-            var user = await userManager.FindByEmailAsync(email);
-            if (user == null)
+            await CreateUserWithRole(userManager, email, "Admin123!", "Admin");
+        }
+
+        // 4. Seed Artists
+        foreach (var email in artists)
+        {
+            await CreateUserWithRole(userManager, email, "Artist123!", "Artist");
+        }
+
+        // 5. Seed Normal Users
+        foreach (var email in normalUsers)
+        {
+            await CreateUserWithRole(userManager, email, "User123!", "User");
+        }
+    }
+
+    // Helper method to keep the code clean and handle multiple users easily
+    private static async Task CreateUserWithRole(UserManager<IdentityUser<int>> userManager, string email, string password, string role)
+    {
+        var user = await userManager.FindByEmailAsync(email);
+        if (user == null)
+        {
+            var newUser = new IdentityUser<int>
             {
-                // CRITICAL: Must use IdentityUser<int> here
-                var newAdmin = new IdentityUser<int>
-                {
-                    UserName = email,
-                    Email = email,
-                    EmailConfirmed = true
-                };
+                UserName = email,
+                Email = email,
+                EmailConfirmed = true
+            };
 
-                // Use a secure temporary password
-                var result = await userManager.CreateAsync(newAdmin, "Admin123!");
-
-                if (result.Succeeded)
-                {
-                    await userManager.AddToRoleAsync(newAdmin, "Admin");
-                }
+            var result = await userManager.CreateAsync(newUser, password);
+            if (result.Succeeded)
+            {
+                await userManager.AddToRoleAsync(newUser, role);
             }
         }
     }

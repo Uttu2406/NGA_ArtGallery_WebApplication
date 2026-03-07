@@ -6,13 +6,16 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace NGA_ArtGallery.Web.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreate : Migration
+    public partial class InitialSchemas : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.EnsureSchema(
                 name: "Gallery");
+
+            migrationBuilder.EnsureSchema(
+                name: "dbo");
 
             migrationBuilder.CreateTable(
                 name: "Artists",
@@ -21,12 +24,13 @@ namespace NGA_ArtGallery.Web.Migrations
                 {
                     ArtistID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    UserID = table.Column<int>(type: "int", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    Biography = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    BirthDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Nationality = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Website = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ContactInformation = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Biography = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    BirthDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    Nationality = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Website = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ContactInformation = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -35,7 +39,7 @@ namespace NGA_ArtGallery.Web.Migrations
 
             migrationBuilder.CreateTable(
                 name: "AspNetRoles",
-                schema: "Gallery",
+                schema: "dbo",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -51,7 +55,7 @@ namespace NGA_ArtGallery.Web.Migrations
 
             migrationBuilder.CreateTable(
                 name: "AspNetUsers",
-                schema: "Gallery",
+                schema: "dbo",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -84,9 +88,9 @@ namespace NGA_ArtGallery.Web.Migrations
                     GalleryID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Location = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    OpeningHours = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Location = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    OpeningHours = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ArtistID = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -103,7 +107,7 @@ namespace NGA_ArtGallery.Web.Migrations
 
             migrationBuilder.CreateTable(
                 name: "AspNetRoleClaims",
-                schema: "Gallery",
+                schema: "dbo",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -118,7 +122,7 @@ namespace NGA_ArtGallery.Web.Migrations
                     table.ForeignKey(
                         name: "FK_AspNetRoleClaims_AspNetRoles_RoleId",
                         column: x => x.RoleId,
-                        principalSchema: "Gallery",
+                        principalSchema: "dbo",
                         principalTable: "AspNetRoles",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -126,7 +130,7 @@ namespace NGA_ArtGallery.Web.Migrations
 
             migrationBuilder.CreateTable(
                 name: "AspNetUserClaims",
-                schema: "Gallery",
+                schema: "dbo",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -141,7 +145,7 @@ namespace NGA_ArtGallery.Web.Migrations
                     table.ForeignKey(
                         name: "FK_AspNetUserClaims_AspNetUsers_UserId",
                         column: x => x.UserId,
-                        principalSchema: "Gallery",
+                        principalSchema: "dbo",
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -149,7 +153,7 @@ namespace NGA_ArtGallery.Web.Migrations
 
             migrationBuilder.CreateTable(
                 name: "AspNetUserLogins",
-                schema: "Gallery",
+                schema: "dbo",
                 columns: table => new
                 {
                     LoginProvider = table.Column<string>(type: "nvarchar(128)", maxLength: 128, nullable: false),
@@ -163,7 +167,7 @@ namespace NGA_ArtGallery.Web.Migrations
                     table.ForeignKey(
                         name: "FK_AspNetUserLogins_AspNetUsers_UserId",
                         column: x => x.UserId,
-                        principalSchema: "Gallery",
+                        principalSchema: "dbo",
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -171,7 +175,7 @@ namespace NGA_ArtGallery.Web.Migrations
 
             migrationBuilder.CreateTable(
                 name: "AspNetUserRoles",
-                schema: "Gallery",
+                schema: "dbo",
                 columns: table => new
                 {
                     UserId = table.Column<int>(type: "int", nullable: false),
@@ -183,14 +187,14 @@ namespace NGA_ArtGallery.Web.Migrations
                     table.ForeignKey(
                         name: "FK_AspNetUserRoles_AspNetRoles_RoleId",
                         column: x => x.RoleId,
-                        principalSchema: "Gallery",
+                        principalSchema: "dbo",
                         principalTable: "AspNetRoles",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_AspNetUserRoles_AspNetUsers_UserId",
                         column: x => x.UserId,
-                        principalSchema: "Gallery",
+                        principalSchema: "dbo",
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -198,7 +202,7 @@ namespace NGA_ArtGallery.Web.Migrations
 
             migrationBuilder.CreateTable(
                 name: "AspNetUserTokens",
-                schema: "Gallery",
+                schema: "dbo",
                 columns: table => new
                 {
                     UserId = table.Column<int>(type: "int", nullable: false),
@@ -212,7 +216,7 @@ namespace NGA_ArtGallery.Web.Migrations
                     table.ForeignKey(
                         name: "FK_AspNetUserTokens_AspNetUsers_UserId",
                         column: x => x.UserId,
-                        principalSchema: "Gallery",
+                        principalSchema: "dbo",
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -226,10 +230,10 @@ namespace NGA_ArtGallery.Web.Migrations
                     ArtworkID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Title = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    CreationDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Medium = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ImageURL = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CreationDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    Medium = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ImageURL = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ArtistID = table.Column<int>(type: "int", nullable: false),
                     GalleryID = table.Column<int>(type: "int", nullable: true)
                 },
@@ -265,13 +269,13 @@ namespace NGA_ArtGallery.Web.Migrations
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
-                schema: "Gallery",
+                schema: "dbo",
                 table: "AspNetRoleClaims",
                 column: "RoleId");
 
             migrationBuilder.CreateIndex(
                 name: "RoleNameIndex",
-                schema: "Gallery",
+                schema: "dbo",
                 table: "AspNetRoles",
                 column: "NormalizedName",
                 unique: true,
@@ -279,31 +283,31 @@ namespace NGA_ArtGallery.Web.Migrations
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetUserClaims_UserId",
-                schema: "Gallery",
+                schema: "dbo",
                 table: "AspNetUserClaims",
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetUserLogins_UserId",
-                schema: "Gallery",
+                schema: "dbo",
                 table: "AspNetUserLogins",
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetUserRoles_RoleId",
-                schema: "Gallery",
+                schema: "dbo",
                 table: "AspNetUserRoles",
                 column: "RoleId");
 
             migrationBuilder.CreateIndex(
                 name: "EmailIndex",
-                schema: "Gallery",
+                schema: "dbo",
                 table: "AspNetUsers",
                 column: "NormalizedEmail");
 
             migrationBuilder.CreateIndex(
                 name: "UserNameIndex",
-                schema: "Gallery",
+                schema: "dbo",
                 table: "AspNetUsers",
                 column: "NormalizedUserName",
                 unique: true,
@@ -325,23 +329,23 @@ namespace NGA_ArtGallery.Web.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetRoleClaims",
-                schema: "Gallery");
+                schema: "dbo");
 
             migrationBuilder.DropTable(
                 name: "AspNetUserClaims",
-                schema: "Gallery");
+                schema: "dbo");
 
             migrationBuilder.DropTable(
                 name: "AspNetUserLogins",
-                schema: "Gallery");
+                schema: "dbo");
 
             migrationBuilder.DropTable(
                 name: "AspNetUserRoles",
-                schema: "Gallery");
+                schema: "dbo");
 
             migrationBuilder.DropTable(
                 name: "AspNetUserTokens",
-                schema: "Gallery");
+                schema: "dbo");
 
             migrationBuilder.DropTable(
                 name: "Galleries",
@@ -349,11 +353,11 @@ namespace NGA_ArtGallery.Web.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles",
-                schema: "Gallery");
+                schema: "dbo");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers",
-                schema: "Gallery");
+                schema: "dbo");
 
             migrationBuilder.DropTable(
                 name: "Artists",

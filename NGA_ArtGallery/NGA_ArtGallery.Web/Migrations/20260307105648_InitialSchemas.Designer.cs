@@ -12,15 +12,15 @@ using NGA_ArtGallery.Data.Context;
 namespace NGA_ArtGallery.Web.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20260302072957_EntitiesNullHandling")]
-    partial class EntitiesNullHandling
+    [Migration("20260307105648_InitialSchemas")]
+    partial class InitialSchemas
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasDefaultSchema("Gallery")
+                .HasDefaultSchema("dbo")
                 .HasAnnotation("ProductVersion", "8.0.24")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
@@ -53,7 +53,7 @@ namespace NGA_ArtGallery.Web.Migrations
                         .HasDatabaseName("RoleNameIndex")
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
-                    b.ToTable("AspNetRoles", "Gallery");
+                    b.ToTable("AspNetRoles", "dbo");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>
@@ -77,7 +77,7 @@ namespace NGA_ArtGallery.Web.Migrations
 
                     b.HasIndex("RoleId");
 
-                    b.ToTable("AspNetRoleClaims", "Gallery");
+                    b.ToTable("AspNetRoleClaims", "dbo");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUser<int>", b =>
@@ -145,7 +145,7 @@ namespace NGA_ArtGallery.Web.Migrations
                         .HasDatabaseName("UserNameIndex")
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
-                    b.ToTable("AspNetUsers", "Gallery");
+                    b.ToTable("AspNetUsers", "dbo");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<int>", b =>
@@ -169,7 +169,7 @@ namespace NGA_ArtGallery.Web.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("AspNetUserClaims", "Gallery");
+                    b.ToTable("AspNetUserClaims", "dbo");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<int>", b =>
@@ -192,7 +192,7 @@ namespace NGA_ArtGallery.Web.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("AspNetUserLogins", "Gallery");
+                    b.ToTable("AspNetUserLogins", "dbo");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<int>", b =>
@@ -207,7 +207,7 @@ namespace NGA_ArtGallery.Web.Migrations
 
                     b.HasIndex("RoleId");
 
-                    b.ToTable("AspNetUserRoles", "Gallery");
+                    b.ToTable("AspNetUserRoles", "dbo");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<int>", b =>
@@ -228,7 +228,7 @@ namespace NGA_ArtGallery.Web.Migrations
 
                     b.HasKey("UserId", "LoginProvider", "Name");
 
-                    b.ToTable("AspNetUserTokens", "Gallery");
+                    b.ToTable("AspNetUserTokens", "dbo");
                 });
 
             modelBuilder.Entity("NGA_ArtGallery.Data.Entities.Artist", b =>

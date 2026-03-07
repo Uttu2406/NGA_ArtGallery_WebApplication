@@ -1,0 +1,29 @@
+﻿@model IEnumerable<NGA_ArtGallery.Data.Entities.Artwork>
+
+<h2>My Gallery</h2>
+<a asp-action="Upload" class="btn btn-primary">Upload New</a>
+
+<hr />
+
+@if (!Model.Any())
+{
+    <div style="padding: 40px; border: 2px dashed #ccc; text-align: center; color: #666;">
+        <p>You haven't uploaded any artwork yet.</p>
+    </div>
+}
+else
+{
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-3" style="margin-bottom: 20px;">
+                <img src="@item.ImageURL" style="width:100%; height: 150px; object-fit: cover; border-radius: 4px;" />
+                <p style="margin-bottom: 5px;"><strong>@item.Title</strong></p>
+
+                <form asp-action="Delete" asp-route-id="@item.ArtworkID" method="post" onsubmit="return confirm('Permanently delete this artwork?');">
+                    <button type="submit" class="btn btn-danger btn-sm" style="width:100%">Delete</button>
+                </form>
+            </div>
+        }
+    </div>
+}
