@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\KIIT01\\Desktop\\Wipro NGA\\Art_Gallery\\NGA_ArtGallery_WebApplication\\NGA_ArtGallery\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{88BF8970-F6C3-440A-BC9C-B15727D27437}|NGA_ArtGallery.Web\\NGA_ArtGallery.Web.csproj|c:\\users\\kiit01\\desktop\\wipro nga\\art_gallery\\nga_artgallery_webapplication\\nga_artgallery\\nga_artgallery.web\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{88BF8970-F6C3-440A-BC9C-B15727D27437}|NGA_ArtGallery.Web\\NGA_ArtGallery.Web.csproj|solutionrelative:nga_artgallery.web\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{2B19D6E6-AE40-0244-9A37-CC835F9DCF13}|NGA_ArtGallery.Data\\NGA_ArtGallery.Data.csproj|c:\\users\\kiit01\\desktop\\wipro nga\\art_gallery\\nga_artgallery_webapplication\\nga_artgallery\\nga_artgallery.data\\context\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2B19D6E6-AE40-0244-9A37-CC835F9DCF13}|NGA_ArtGallery.Data\\NGA_ArtGallery.Data.csproj|solutionrelative:nga_artgallery.data\\context\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{88BF8970-F6C3-440A-BC9C-B15727D27437}|NGA_ArtGallery.Web\\NGA_ArtGallery.Web.csproj|c:\\users\\kiit01\\desktop\\wipro nga\\art_gallery\\nga_artgallery_webapplication\\nga_artgallery\\nga_artgallery.web\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{88BF8970-F6C3-440A-BC9C-B15727D27437}|NGA_ArtGallery.Web\\NGA_ArtGallery.Web.csproj|solutionrelative:nga_artgallery.web\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,17 +18,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "ApplicationDbContext.cs",
               "DocumentMoniker": "C:\\Users\\KIIT01\\Desktop\\Wipro NGA\\Art_Gallery\\NGA_ArtGallery_WebApplication\\NGA_ArtGallery\\NGA_ArtGallery.Data\\Context\\ApplicationDbContext.cs",
               "RelativeDocumentMoniker": "NGA_ArtGallery.Data\\Context\\ApplicationDbContext.cs",
               "ToolTip": "C:\\Users\\KIIT01\\Desktop\\Wipro NGA\\Art_Gallery\\NGA_ArtGallery_WebApplication\\NGA_ArtGallery\\NGA_ArtGallery.Data\\Context\\ApplicationDbContext.cs",
               "RelativeToolTip": "NGA_ArtGallery.Data\\Context\\ApplicationDbContext.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAwwB4AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-05T04:05:27.959Z",
               "IsPinned": true,
@@ -36,13 +36,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\KIIT01\\Desktop\\Wipro NGA\\Art_Gallery\\NGA_ArtGallery_WebApplication\\NGA_ArtGallery\\NGA_ArtGallery.Web\\Program.cs",
               "RelativeDocumentMoniker": "NGA_ArtGallery.Web\\Program.cs",
               "ToolTip": "C:\\Users\\KIIT01\\Desktop\\Wipro NGA\\Art_Gallery\\NGA_ArtGallery_WebApplication\\NGA_ArtGallery\\NGA_ArtGallery.Web\\Program.cs",
               "RelativeToolTip": "NGA_ArtGallery.Web\\Program.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAmwDQAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAABoAAAAAAAAAAAAowDQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-28T09:27:01.737Z",
               "IsPinned": true,

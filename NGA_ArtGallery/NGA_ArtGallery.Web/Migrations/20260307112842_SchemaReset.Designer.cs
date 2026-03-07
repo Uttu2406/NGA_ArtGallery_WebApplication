@@ -12,8 +12,8 @@ using NGA_ArtGallery.Data.Context;
 namespace NGA_ArtGallery.Web.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20260307105648_InitialSchemas")]
-    partial class InitialSchemas
+    [Migration("20260307112842_SchemaReset")]
+    partial class SchemaReset
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace NGA_ArtGallery.Web.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialSchemas : Migration
+    public partial class SchemaReset : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

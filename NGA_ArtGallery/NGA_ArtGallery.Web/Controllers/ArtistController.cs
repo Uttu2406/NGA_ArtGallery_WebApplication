@@ -3,8 +3,11 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using NGA_ArtGallery.Data.Context;
-using NGA_ArtGallery.Data.Entities; // Adjust based on your actual namespace
-// Add your DbContext namespace here!
+using NGA_ArtGallery.Data.Entities;
+using System;
+using System.IO;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace NGA_ArtGallery.Web.Controllers
 {
@@ -12,7 +15,7 @@ namespace NGA_ArtGallery.Web.Controllers
     public class ArtistController : Controller
     {
         private readonly UserManager<IdentityUser<int>> _userManager;
-        private readonly ApplicationDbContext _context; 
+        private readonly ApplicationDbContext _context;
 
         public ArtistController(UserManager<IdentityUser<int>> userManager, ApplicationDbContext context)
         {
@@ -20,70 +23,83 @@ namespace NGA_ArtGallery.Web.Controllers
             _context = context;
         }
 
-        // 1. The "Dashboard" for the Artist to see their work
+        // 1. Dashboard: Shows artworks or creates profile if missing
         public async Task<IActionResult> Index()
         {
-            var userId = int.Parse(_userManager.GetUserId(User));
+            var userIdString = _userManager.GetUserId(User);
+            if (userIdString == null) return Challenge();
 
-            // Find this user's Artist profile
+            var userId = int.Parse(userIdString);
+
             var artist = await _context.Artists
                 .Include(a => a.Artworks)
                 .FirstOrDefaultAsync(a => a.UserID == userId);
 
+            // AUTO-CREATE PROFILE: If user has Artist role but no record in Gallery.Artists
             if (artist == null)
             {
-                return NotFound("Artist profile not found. Please contact Admin.");
+                artist = new Artist
+                {
+                    UserID = userId,
+                    Name = User.Identity?.Name ?? "New Artist"
+                };
+                _context.Artists.Add(artist);
+                await _context.SaveChangesAsync();
             }
 
-            return View(artist.Artworks);
+            return View(artist.Artworks ?? new List<Artwork>());
         }
 
-        // 2. GET: Show the Upload Form
+        // 2. GET: Upload Form
         [HttpGet]
         public IActionResult Upload()
         {
             return View();
         }
 
-        // 3. Post 
+        // 3. POST: Handle File Upload and Database entry
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Upload(Artwork artwork, IFormFile imageFile)
         {
             if (imageFile != null && imageFile.Length > 0)
             {
-                // 1. Create a unique filename so people don't overwrite each other
+                // Create unique filename
                 var fileName = Guid.NewGuid().ToString() + Path.GetExtension(imageFile.FileName);
-
-                // 2. Define the path to save the file
                 var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images/artworks", fileName);
 
-                // 3. Save the file to the folder
+                // Ensure directory exists
+                Directory.CreateDirectory(Path.GetDirectoryName(filePath)!);
+
                 using (var stream = new FileStream(filePath, FileMode.Create))
                 {
                     await imageFile.CopyToAsync(stream);
                 }
 
-                // 4. Set the ImageURL property for the database
                 artwork.ImageURL = "/images/artworks/" + fileName;
 
-                // 5. Link the artwork to the logged-in Artist
-                var userId = int.Parse(_userManager.GetUserId(User));
+                var userId = int.Parse(_userManager.GetUserId(User)!);
                 var artist = await _context.Artists.FirstOrDefaultAsync(a => a.UserID == userId);
 
-                if (artist != null)
+                // Double check artist exists before linking artwork
+                if (artist == null)
                 {
-                    artwork.ArtistID = artist.ArtistID;
-                    _context.Artworks.Add(artwork);
+                    artist = new Artist { UserID = userId, Name = User.Identity?.Name ?? "New Artist" };
+                    _context.Artists.Add(artist);
                     await _context.SaveChangesAsync();
-                    return RedirectToAction(nameof(Index));
                 }
+
+                artwork.ArtistID = artist.ArtistID;
+                _context.Artworks.Add(artwork);
+                await _context.SaveChangesAsync();
+
+                return RedirectToAction(nameof(Index));
             }
 
             return View(artwork);
         }
 
-        // 4. Delete
+        // 4. POST: Delete Artwork and its image file
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Delete(int id)
@@ -91,14 +107,13 @@ namespace NGA_ArtGallery.Web.Controllers
             var artwork = await _context.Artworks.FindAsync(id);
             if (artwork == null) return NotFound();
 
-            // 1. Delete the physical file from the server
+            // Delete physical file
             var imagePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", artwork.ImageURL.TrimStart('/'));
             if (System.IO.File.Exists(imagePath))
             {
                 System.IO.File.Delete(imagePath);
             }
 
-            // 2. Delete the record from the database
             _context.Artworks.Remove(artwork);
             await _context.SaveChangesAsync();
 
