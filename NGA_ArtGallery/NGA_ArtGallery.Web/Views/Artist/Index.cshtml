@@ -1,11 +1,34 @@
-﻿@model IEnumerable<NGA_ArtGallery.Data.Entities.Artwork>
+﻿@model NGA_ArtGallery.Data.Entities.Artist
 
-<h2>My Gallery</h2>
-<a asp-action="Upload" class="btn btn-primary">Upload New</a>
+<div class="d-flex justify-content-between align-items-center">
+    <h2>@Model.Name's Dashboard</h2>
+    <div>
+        <a asp-action="EditProfile" class="btn btn-outline-secondary">Manage Profile</a>
+        <a asp-action="Upload" class="btn btn-primary">Upload New Art</a>
+    </div>
+</div>
 
 <hr />
 
-@if (!Model.Any())
+<div class="card mb-4 bg-light border-0 shadow-sm">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-8">
+                <h5>Biography</h5>
+                <p>@(string.IsNullOrEmpty(Model.Biography) ? "No biography added yet." : Model.Biography)</p>
+            </div>
+            <div class="col-md-4 border-start">
+                <p><strong>Nationality:</strong> @(Model.Nationality ?? "N/A")</p>
+                <p><strong>Birth Date:</strong> @(Model.BirthDate?.ToShortDateString() ?? "N/A")</p>
+                <p><strong>Contact:</strong> @(Model.ContactInformation ?? "N/A")</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<h4>My Gallery</h4>
+
+@if (Model.Artworks == null || !Model.Artworks.Any())
 {
     <div style="padding: 40px; border: 2px dashed #ccc; text-align: center; color: #666;">
         <p>You haven't uploaded any artwork yet.</p>
@@ -14,15 +37,22 @@
 else
 {
     <div class="row">
-        @foreach (var item in Model)
+        @foreach (var item in Model.Artworks)
         {
             <div class="col-3" style="margin-bottom: 20px;">
-                <img src="@item.ImageURL" style="width:100%; height: 150px; object-fit: cover; border-radius: 4px;" />
-                <p style="margin-bottom: 5px;"><strong>@item.Title</strong></p>
-
-                <form asp-action="Delete" asp-route-id="@item.ArtworkID" method="post" onsubmit="return confirm('Permanently delete this artwork?');">
-                    <button type="submit" class="btn btn-danger btn-sm" style="width:100%">Delete</button>
-                </form>
+                <div class="card h-100 shadow-sm">
+                    <img src="@item.ImageURL" style="width:100%; height: 150px; object-fit: cover; border-radius: 4px 4px 0 0;" />
+                    <div class="card-body p-2">
+                        <p class="mb-1"><strong>@item.Title</strong></p>
+                        <p class="text-muted small">@item.Medium</p>
+                    </div>
+                    <div class="btn-group w-100">
+                        <a asp-action="EditArtwork" asp-route-id="@item.ArtworkID" class="btn btn-warning btn-sm">Edit</a>
+                        <form asp-action="Delete" asp-route-id="@item.ArtworkID" method="post" onsubmit="return confirm('Permanently delete?');" style="flex-grow: 1;">
+                            <button type="submit" class="btn btn-danger btn-sm" style="width:100%">Delete</button>
+                        </form>
+                    </div>
+                </div>
             </div>
         }
     </div>

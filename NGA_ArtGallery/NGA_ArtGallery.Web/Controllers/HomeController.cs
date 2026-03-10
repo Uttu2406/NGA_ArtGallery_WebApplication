@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using NGA_ArtGallery.Data.Context; // Adjust to your actual namespace
+using NGA_ArtGallery.Data.Context;
 using NGA_ArtGallery.Web.Models;
 using System.Diagnostics;
 
@@ -9,9 +9,8 @@ namespace NGA_ArtGallery.Web.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly ApplicationDbContext _context; // Add this
+        private readonly ApplicationDbContext _context;
 
-        // Add context to the constructor
         public HomeController(ILogger<HomeController> logger, ApplicationDbContext context)
         {
             _logger = logger;
@@ -20,12 +19,27 @@ namespace NGA_ArtGallery.Web.Controllers
 
         public async Task<IActionResult> Index()
         {
-            // Get all artworks from the DB and include the Artist's details
             var artworks = await _context.Artworks
                 .Include(a => a.Artist)
                 .ToListAsync();
 
-            return View(artworks); // Pass the list to the View
+            return View(artworks);
+        }
+
+        // --- NEW DETAILS ACTION ---
+        public async Task<IActionResult> Details(int id)
+        {
+            // Fetch the specific artwork and include Artist details for the Bio
+            var artwork = await _context.Artworks
+                .Include(a => a.Artist)
+                .FirstOrDefaultAsync(m => m.ArtworkID == id);
+
+            if (artwork == null)
+            {
+                return NotFound();
+            }
+
+            return View(artwork);
         }
 
         public IActionResult Privacy()

@@ -1,32 +1,46 @@
 ﻿@model IEnumerable<NGA_ArtGallery.Web.Models.ViewModels.UserManagementViewModel>
 
-@{
-    ViewData["Title"] = "Manage Users";
-}
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1>User Management</h1>
+        <a asp-action="CreateUser" class="btn btn-success">Create New User</a>
+    </div>
 
-<h1>User Management</h1>
-
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Email</th>
-            <th>Role</th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var user in Model)
-        {
+    <table class="table table-hover shadow-sm bg-white">
+        <thead class="table-dark">
             <tr>
-                <td>@user.Id</td>
-                <td>@user.Email</td>
-                <td>@user.Role</td>
-                <td>
-                    <button class="btn btn-sm btn-primary">Edit Role</button>
-                    <button class="btn btn-sm btn-danger">Delete</button>
-                </td>
+                <th>Email</th>
+                <th>Current Role</th>
+                <th class="text-center">Actions</th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var user in Model)
+            {
+                <tr>
+                    <td class="align-middle">@user.Email</td>
+                    <td class="align-middle">
+                        <span class="badge @(user.Role == "Admin" ? "bg-danger" : "bg-primary")">@user.Role</span>
+                    </td>
+                    <td class="text-center">
+                        <div class="btn-group">
+                            <a asp-action="EditRole" asp-route-userId="@user.Id" class="btn btn-sm btn-outline-warning">Roles</a>
+
+                            @if (user.Role == "Artist")
+                            {
+                                <a asp-controller="Artist" asp-action="EditProfile" asp-route-id="@user.Id" class="btn btn-sm btn-outline-info">Profile</a>
+
+                                <a asp-action="ViewArtistAccount" asp-route-userId="@user.Id" class="btn btn-sm btn-outline-primary">Manage Art</a>
+                            }
+
+                            <form asp-action="DeleteUser" asp-route-id="@user.Id" method="post" onsubmit="return confirm('WARNING: This deletes the user and all their artwork. Proceed?');" style="display:inline;">
+                                @Html.AntiForgeryToken()
+                                <button type="submit" class="btn btn-sm btn-outline-danger">Delete</button>
+                            </form>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

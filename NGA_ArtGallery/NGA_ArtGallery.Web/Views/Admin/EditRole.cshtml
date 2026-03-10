@@ -1,0 +1,28 @@
+﻿@{
+    ViewData["Title"] = "Update Role";
+}
+
+<div class="row justify-content-center mt-5">
+    <div class="col-md-5 card p-4 shadow-lg border-warning">
+        <h3 class="text-center mb-4">Update Role for <br /><small class="text-muted">@ViewBag.UserEmail</small></h3>
+
+        <form asp-action="UpdateRole" method="post">
+            @Html.AntiForgeryToken()
+            <input type="hidden" name="userId" value="@ViewBag.UserId" />
+
+            <div class="form-group mb-4">
+                <label class="form-label fw-bold">Select New Access Level</label>
+                <select name="newRole" class="form-select shadow-sm">
+                    <option value="Artist">Artist (Gallery Uploads)</option>
+                    <option value="Admin">Admin (Full Control)</option>
+                </select>
+                <div class="form-text text-info">Changing a role will reset their dashboard access.</div>
+            </div>
+
+            <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-warning fw-bold shadow-sm">Confirm Role Change</button>
+                <a asp-action="ManageUsers" class="btn btn-outline-secondary">Cancel and Return</a>
+            </div>
+        </form>
+    </div>
+</div>
