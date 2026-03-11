@@ -1,0 +1,78 @@
+﻿@model Microsoft.AspNetCore.Identity.IdentityUser<int>
+@using Microsoft.AspNetCore.Identity
+@inject UserManager<IdentityUser<int>> UserManager
+
+@{
+    ViewData["Title"] = "User Details";
+    var currentUserId = int.Parse(UserManager.GetUserId(User)!);
+    var isArtist = ViewBag.Role == "Artist";
+    var isAdmin = ViewBag.Role == "Admin";
+}
+
+<div class="container mt-4">
+    <div class="card shadow">
+        <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
+            <h3 class="mb-0">User Details: @Model.Email</h3>
+            <a asp-action="ManageUsers" class="btn btn-sm btn-light">Back to List</a>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5 class="text-muted text-uppercase small fw-bold">Account Information</h5>
+                    <hr />
+                    <p><strong>User ID:</strong> @Model.Id</p>
+                    <p><strong>Username:</strong> @Model.UserName</p>
+                    <p>
+                        <strong>Role:</strong>
+                        <span class="badge @(isAdmin ? "bg-danger" : isArtist ? "bg-primary" : "bg-secondary")">
+                            @ViewBag.Role
+                        </span>
+                    </p>
+                </div>
+
+                <div class="col-md-6">
+                    <h5 class="text-muted text-uppercase small fw-bold">Management Options</h5>
+                    <hr />
+                    <div class="d-grid gap-2">
+                        @if (isArtist || (isAdmin && ViewBag.ArtistId != null))
+                        {
+                            <a asp-action="ViewArtistAccount" asp-route-userId="@Model.Id" class="btn btn-primary">
+                                <i class="bi bi-palette"></i> Manage Artist Artworks
+                            </a>
+
+                            <a asp-controller="Artist" asp-action="EditProfile" asp-route-artistId="@ViewBag.ArtistId" class="btn btn-outline-primary">
+                                <i class="bi bi-person-gear"></i> Edit Artist Profile
+                            </a>
+                        }
+
+                        <a asp-action="EditRole" asp-route-userId="@Model.Id" class="btn btn-warning">
+                            <i class="bi bi-shield-lock"></i> Change User Role
+                        </a>
+
+                        @* Only show Delete if it's NOT the logged-in admin *@
+                        @if (Model.Id != currentUserId)
+                        {
+                            <form asp-action="DeleteUser" asp-route-id="@Model.Id" method="post"
+                                  onsubmit="return confirm('ARE YOU SURE? This will delete all artworks and artist data associated with this account.');">
+                                @Html.AntiForgeryToken()
+                                <button type="submit" class="btn btn-danger w-100">
+                                    <i class="bi bi-trash"></i> Delete User Account
+                                </button>
+                            </form>
+                        }
+                        else
+                        {
+                            <div class="alert alert-secondary mb-0 py-2 text-center">
+                                <small>You cannot delete your own account.</small>
+                            </div>
+                        }
+
+                        <button class="btn btn-outline-secondary" disabled>
+                            View Favorites (Coming Soon)
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

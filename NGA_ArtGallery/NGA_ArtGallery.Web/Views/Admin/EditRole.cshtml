@@ -13,8 +13,15 @@
             <div class="form-group mb-4">
                 <label class="form-label fw-bold">Select New Access Level</label>
                 <select name="newRole" class="form-select shadow-sm">
-                    <option value="Artist">Artist (Gallery Uploads)</option>
-                    <option value="Admin">Admin (Full Control)</option>
+                    @if (ViewBag.AllRoles != null)
+                    {
+                        foreach (var role in ViewBag.AllRoles)
+                        {
+                            <!option value="@role" @(role == ViewBag.CurrentRole ? "selected" : "")>
+                            @role
+                            </!option>
+                        }
+                    }
                 </select>
                 <div class="form-text text-info">Changing a role will reset their dashboard access.</div>
             </div>

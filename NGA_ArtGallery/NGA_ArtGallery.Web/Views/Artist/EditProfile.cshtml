@@ -5,46 +5,52 @@
 }
 
 <div class="container mt-4">
-    <h3>Edit Your Artist Profile</h3>
+    <h3>Edit Profile: @Model.Name</h3>
     <hr />
     <div class="row">
         <div class="col-md-6">
             <form asp-action="EditProfile" method="post">
+                @Html.AntiForgeryToken()
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
+                <input type="hidden" asp-for="ArtistID" />
+                <input type="hidden" asp-for="UserID" />
+
                 <div class="form-group mb-3">
-                    <label asp-for="Name"></label>
+                    <label asp-for="Name" class="fw-bold"></label>
                     <input asp-for="Name" class="form-control" />
                     <span asp-validation-for="Name" class="text-danger"></span>
                 </div>
 
                 <div class="form-group mb-3">
-                    <label asp-for="Biography"></label>
+                    <label asp-for="Biography" class="fw-bold"></label>
                     <textarea asp-for="Biography" class="form-control" rows="4"></textarea>
                 </div>
 
                 <div class="form-group mb-3">
-                    <label asp-for="Nationality"></label>
+                    <label asp-for="Nationality" class="fw-bold"></label>
                     <input asp-for="Nationality" class="form-control" />
                 </div>
 
                 <div class="form-group mb-3">
-                    <label asp-for="BirthDate">Birth Date</label>
+                    <label asp-for="BirthDate" class="fw-bold">Birth Date</label>
                     <input asp-for="BirthDate" type="date" class="form-control" />
                 </div>
 
                 <div class="form-group mb-3">
-                    <label asp-for="Website"></label>
+                    <label asp-for="Website" class="fw-bold"></label>
                     <input asp-for="Website" class="form-control" placeholder="https://..." />
                 </div>
 
                 <div class="form-group mb-3">
-                    <label asp-for="ContactInformation">Contact Info</label>
+                    <label asp-for="ContactInformation" class="fw-bold">Contact Info</label>
                     <input asp-for="ContactInformation" class="form-control" />
                 </div>
 
-                <button type="submit" class="btn btn-primary">Save Changes</button>
-                <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+                <div class="mt-4">
+                    <button type="submit" class="btn btn-primary px-4">Save Changes</button>
+                    <a asp-action="Index" asp-route-artistId="@Model.ArtistID" class="btn btn-secondary">Cancel</a>
+                </div>
             </form>
         </div>
     </div>

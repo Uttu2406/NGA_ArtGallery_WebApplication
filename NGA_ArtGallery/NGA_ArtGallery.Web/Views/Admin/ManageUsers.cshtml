@@ -1,46 +1,93 @@
-﻿@model IEnumerable<NGA_ArtGallery.Web.Models.ViewModels.UserManagementViewModel>
+﻿@model IEnumerable<IGrouping<string, NGA_ArtGallery.Web.Models.ViewModels.UserManagementViewModel>>
+@using Microsoft.AspNetCore.Identity
+@inject UserManager<IdentityUser<int>> UserManager
+
+@{
+    var currentUserId = int.Parse(UserManager.GetUserId(User)!);
+}
 
 <div class="container mt-4">
+    @if (TempData["Error"] != null)
+    {
+        <div class="alert alert-danger alert-dismissible fade show shadow-sm" role="alert">
+            <strong><i class="bi bi-exclamation-triangle-fill"></i> Error!</strong> @TempData["Error"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+    @if (TempData["Success"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show shadow-sm" role="alert">
+            <strong><i class="bi bi-check-circle-fill"></i> Success!</strong> @TempData["Success"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h1>User Management</h1>
-        <a asp-action="CreateUser" class="btn btn-success">Create New User</a>
+        <a asp-action="CreateUser" class="btn btn-success shadow-sm">+ Create New User</a>
     </div>
 
-    <table class="table table-hover shadow-sm bg-white">
-        <thead class="table-dark">
-            <tr>
-                <th>Email</th>
-                <th>Current Role</th>
-                <th class="text-center">Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var user in Model)
-            {
-                <tr>
-                    <td class="align-middle">@user.Email</td>
-                    <td class="align-middle">
-                        <span class="badge @(user.Role == "Admin" ? "bg-danger" : "bg-primary")">@user.Role</span>
-                    </td>
-                    <td class="text-center">
-                        <div class="btn-group">
-                            <a asp-action="EditRole" asp-route-userId="@user.Id" class="btn btn-sm btn-outline-warning">Roles</a>
+    @if (!Model.Any())
+    {
+        <div class="alert alert-info">No users found in the system.</div>
+    }
 
-                            @if (user.Role == "Artist")
-                            {
-                                <a asp-controller="Artist" asp-action="EditProfile" asp-route-id="@user.Id" class="btn btn-sm btn-outline-info">Profile</a>
+    @foreach (var group in Model.OrderBy(g => g.Key == "Admin" ? 0 : g.Key == "Artist" ? 1 : 2))
+    {
+        <div class="role-section mb-5">
+            <h3 class="mb-3 d-flex align-items-center">
+                <span class="badge @(group.Key == "Admin" ? "bg-danger" : group.Key == "Artist" ? "bg-primary" : "bg-secondary") me-2">
+                    @group.Key
+                </span>
+                <small class="text-muted fs-6">(@group.Count() Accounts)</small>
+            </h3>
 
-                                <a asp-action="ViewArtistAccount" asp-route-userId="@user.Id" class="btn btn-sm btn-outline-primary">Manage Art</a>
-                            }
+            <div class="table-responsive shadow-sm">
+                <table class="table table-hover bg-white border">
+                    <thead class="@(group.Key == "Admin" ? "table-danger" : "table-light")">
+                        <tr>
+                            <th style="width: 70%">Email</th>
+                            <th class="text-center">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var user in group)
+                        {
+                            <tr class="@(user.Id == currentUserId ? "table-info" : "")">
+                                <td class="align-middle fw-bold">
+                                    @user.Email
+                                    @if (user.Id == currentUserId)
+                                    {
+                                        <span class="badge bg-dark ms-2">You</span>
+                                    }
+                                </td>
+                                <td class="text-center">
+                                    <div class="btn-group">
+                                        <a asp-action="EditRole" asp-route-userId="@user.Id"
+                                           class="btn btn-sm btn-outline-warning">Edit Roles</a>
 
-                            <form asp-action="DeleteUser" asp-route-id="@user.Id" method="post" onsubmit="return confirm('WARNING: This deletes the user and all their artwork. Proceed?');" style="display:inline;">
-                                @Html.AntiForgeryToken()
-                                <button type="submit" class="btn btn-sm btn-outline-danger">Delete</button>
-                            </form>
-                        </div>
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
+                                        <a asp-action="UserDetails" asp-route-userId="@user.Id"
+                                           class="btn btn-sm btn-outline-info">Details</a>
+
+                                        @if (user.Id != currentUserId)
+                                        {
+                                            <form asp-action="DeleteUser" asp-route-id="@user.Id" method="post"
+                                                  onsubmit="return confirm('Permanently delete this user?');" style="display:inline;">
+                                                @Html.AntiForgeryToken()
+                                                <button type="submit" class="btn btn-sm btn-outline-danger">Delete</button>
+                                            </form>
+                                        }
+                                        else
+                                        {
+                                            <button class="btn btn-sm btn-outline-secondary" disabled title="Cannot delete yourself">Delete</button>
+                                        }
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    }
 </div>
