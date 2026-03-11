@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\KIIT01\\Desktop\\Wipro NGA\\Art_Gallery\\NGA_ArtGallery_WebApplication\\NGA_ArtGallery\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{88BF8970-F6C3-440A-BC9C-B15727D27437}|NGA_ArtGallery.Web\\NGA_ArtGallery.Web.csproj|c:\\users\\kiit01\\desktop\\wipro nga\\art_gallery\\nga_artgallery_webapplication\\nga_artgallery\\nga_artgallery.web\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{88BF8970-F6C3-440A-BC9C-B15727D27437}|NGA_ArtGallery.Web\\NGA_ArtGallery.Web.csproj|solutionrelative:nga_artgallery.web\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{88BF8970-F6C3-440A-BC9C-B15727D27437}|NGA_ArtGallery.Web\\NGA_ArtGallery.Web.csproj|c:\\users\\kiit01\\desktop\\wipro nga\\art_gallery\\nga_artgallery_webapplication\\nga_artgallery\\nga_artgallery.web\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{88BF8970-F6C3-440A-BC9C-B15727D27437}|NGA_ArtGallery.Web\\NGA_ArtGallery.Web.csproj|solutionrelative:nga_artgallery.web\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{88BF8970-F6C3-440A-BC9C-B15727D27437}|NGA_ArtGallery.Web\\NGA_ArtGallery.Web.csproj|c:\\users\\kiit01\\desktop\\wipro nga\\art_gallery\\nga_artgallery_webapplication\\nga_artgallery\\nga_artgallery.web\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{88BF8970-F6C3-440A-BC9C-B15727D27437}|NGA_ArtGallery.Web\\NGA_ArtGallery.Web.csproj|solutionrelative:nga_artgallery.web\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{88BF8970-F6C3-440A-BC9C-B15727D27437}|NGA_ArtGallery.Web\\NGA_ArtGallery.Web.csproj|c:\\users\\kiit01\\desktop\\wipro nga\\art_gallery\\nga_artgallery_webapplication\\nga_artgallery\\nga_artgallery.web\\views\\artist\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -30,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
@@ -47,13 +47,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\KIIT01\\Desktop\\Wipro NGA\\Art_Gallery\\NGA_ArtGallery_WebApplication\\NGA_ArtGallery\\NGA_ArtGallery.Web\\Program.cs",
               "RelativeDocumentMoniker": "NGA_ArtGallery.Web\\Program.cs",
               "ToolTip": "C:\\Users\\KIIT01\\Desktop\\Wipro NGA\\Art_Gallery\\NGA_ArtGallery_WebApplication\\NGA_ArtGallery\\NGA_ArtGallery.Web\\Program.cs",
               "RelativeToolTip": "NGA_ArtGallery.Web\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAA2AAAAAAAAAA==",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAAwDYAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-28T09:27:01.737Z",
               "IsPinned": true,
@@ -61,7 +61,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\KIIT01\\Desktop\\Wipro NGA\\Art_Gallery\\NGA_ArtGallery_WebApplication\\NGA_ArtGallery\\NGA_ArtGallery.Web\\appsettings.json",
               "RelativeDocumentMoniker": "NGA_ArtGallery.Web\\appsettings.json",
@@ -82,8 +82,7 @@
               "RelativeToolTip": "NGA_ArtGallery.Web\\Views\\Artist\\Index.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAD4AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-03-11T11:43:48.918Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-11T11:43:48.918Z"
             },
             {
               "$type": "Document",
