@@ -39,8 +39,7 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-05T04:05:27.959Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -53,8 +52,7 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-28T09:27:01.737Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -64,7 +62,7 @@
               "RelativeDocumentMoniker": "NGA_ArtGallery.Web\\Views\\Artist\\Index.cshtml",
               "ToolTip": "C:\\Users\\KIIT01\\Desktop\\Wipro NGA\\Art_Gallery\\NGA_ArtGallery_WebApplication\\NGA_ArtGallery\\NGA_ArtGallery.Web\\Views\\Artist\\Index.cshtml",
               "RelativeToolTip": "NGA_ArtGallery.Web\\Views\\Artist\\Index.cshtml",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAAAD4AAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAD4AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2026-03-11T11:43:48.918Z",
               "EditorCaption": ""
@@ -79,8 +77,7 @@
               "RelativeToolTip": "NGA_ArtGallery.Web\\Controllers\\ArtistController.cs",
               "ViewState": "AgIAAIcAAAAAAAAAAAAAwLkAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-11T11:43:19.972Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-11T11:43:19.972Z"
             }
           ]
         }
